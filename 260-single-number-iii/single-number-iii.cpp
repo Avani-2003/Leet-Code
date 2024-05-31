@@ -12,13 +12,11 @@ public:
             }
             else 
             {
-                cout<<"N "<<nums[i];
                 arr.push_back(nums[i]);
             }
         } 
         if(nums[n-1]!=nums[n-2])
         {
-            cout<<"S "<<nums[n-1]; 
             arr.push_back(nums[n-1]);
         }
         return arr;       
