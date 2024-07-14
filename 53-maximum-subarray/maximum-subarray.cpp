@@ -1,18 +1,14 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& v) {
-        int sum=0,temp=0,start=v[0],j=0;
-        temp=start;
-        sum=start;
-        for(int i=1;i<v.size();i++)
+    int maxSubArray(vector<int>& nums) {
+        int result=nums[0],ans=nums[0];
+        for(int i=1;i<nums.size();i++)
         {
-            if(temp<0)
-            temp=v[i];
-            else
-            temp=temp+v[i];
-            sum=max(temp,sum);
-            // cout<<endl<<i<<" "<<temp<<" "<<sum<<" ";
-        }
-        return sum;
+            if(ans<=0)
+            ans=0;
+            ans = ans + nums[i];
+            result = max(ans,result);
+        }    
+        return result;    
     }
-};
+};;
