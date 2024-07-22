@@ -18,21 +18,35 @@ public:
             temp=temp->next;
             count++;
         }
-        count = count - n;
-        if(count==0)
+        count = count - n+1;
+        n=0;
+        if(count==1)
         {
             ListNode* ans = head->next;
             delete(head);
             return ans;
         }
         ListNode* ans = head;
-        for(int i=1;i<count;i++)
+        // for(int i=1;i<count;i++)
+        // {
+        //     ans=ans->next;
+        // }
+        // cout<<count<<endl;
+        ListNode* prev = NULL;
+        while(ans)
         {
+            n++;
+            if(n==count)
+            {
+                prev->next=prev->next->next;
+                delete(ans);
+                return head;
+            }
+            prev = ans;
             ans=ans->next;
         }
-        cout<<count<<endl;
-        if(ans==NULL || ans->next==NULL) return NULL;
-        if(ans->next!=NULL && ans!=NULL) ans->next=ans->next->next;
+        // if(ans==NULL || ans->next==NULL) return NULL;
+        // if(ans->next!=NULL && ans!=NULL) ans->next=ans->next->next;
         // cout<<ans->next->next<<endl;
         // if(ans->)
         // ans->next = NULL;
