@@ -25,38 +25,40 @@ public:
         // ListNode* temp1 = new ListNode(res);
         // result=temp1;
         // cout<<result->val;
-        while(list1 && list2)
+        while(list1 || list2)
         {
-            int res = list1->val + list2->val + carry;
+            int res = carry;
+            if(list1) res+= list1->val;
+            if(list2) res+= list2->val;
             carry = res / 10;
             res = res % 10;
-            list1 = list1->next;
-            list2 = list2->next;
+            if(list1) list1 = list1->next;
+            if(list2) list2 = list2->next;
             ListNode* temp = new ListNode(res);
             result->next = temp;
             // cout<<result->val;
             result = result->next;
         } 
-        while(list1)
-        {
-            int res = list1->val + carry;
-            list1 = list1->next;
-            carry = res / 10;
-            res = res % 10;
-           ListNode* temp = new ListNode(res);
-           result->next = temp;
-           result = result->next; 
-        }
-        while(list2)
-        {
-            int res = list2->val + carry;
-            list2 = list2->next;
-            carry = res / 10;
-            res = res % 10;
-           ListNode* temp = new ListNode(res);
-           result->next = temp;
-           result = result->next; 
-        }
+        // while(list1)
+        // {
+        //     int res = list1->val + carry;
+        //     list1 = list1->next;
+        //     carry = res / 10;
+        //     res = res % 10;
+        //    ListNode* temp = new ListNode(res);
+        //    result->next = temp;
+        //    result = result->next; 
+        // }
+        // while(list2)
+        // {
+        //     int res = list2->val + carry;
+        //     list2 = list2->next;
+        //     carry = res / 10;
+        //     res = res % 10;
+        //    ListNode* temp = new ListNode(res);
+        //    result->next = temp;
+        //    result = result->next; 
+        // }
         if(carry!=0)
         {
            ListNode* temp = new ListNode(carry);
