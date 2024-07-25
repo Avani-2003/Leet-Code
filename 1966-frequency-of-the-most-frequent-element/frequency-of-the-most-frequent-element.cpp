@@ -6,7 +6,7 @@ public:
         for(r=0;r<n;r++)
         {
             total = total + nums[r];
-            if((nums[r]*(r-l+1))>total+k)
+            if((nums[r]*(r-l+1))>total+k && l+1<=r)
             {
                 total-=nums[l];
                 l++;
