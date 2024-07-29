@@ -9,19 +9,17 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        // if(headA==headB) return headA;
-        ListNode* temp = headB;
-        while(headA)
+        ListNode* dummy1 = headA, *dummy2 = headB;
+        while(dummy1 != dummy2)
         {
-            headB = temp;
-            while(headB)
-            {
-                // cout<<headA->val<<" ";
-                if(headA==headB) return headA;
-                headB = headB->next;
-            }
-            headA = headA->next;
+            if(dummy1 == NULL)
+            dummy1 = headB;
+            else dummy1 = dummy1->next;
+            if(dummy2 == NULL)
+            dummy2 = headA;
+            else dummy2 = dummy2->next;         
+            
         }
-        return NULL;
+        return dummy1;
     }
 };
