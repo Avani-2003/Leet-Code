@@ -20,12 +20,12 @@ public:
             head = head->next;
             count++;
         }
-        cout<<count;
+        // cout<<count;
         count = count/k;
         
         while(count--)
         {
-            curr = pre->next;
+            curr = curr->next;
             nex = curr->next;
             for(int i=1;i<k;i++)
             {
